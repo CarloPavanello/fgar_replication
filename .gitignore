@@ -1,0 +1,14 @@
+# R stuff
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+
+# MATLAB autosave and logs
+*.asv
+*.log
+
+# Ignore this specific nested folder (path from repo root)
+/code/quantiles/
+/data/outputs/

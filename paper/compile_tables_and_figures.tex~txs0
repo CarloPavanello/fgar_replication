@@ -1,0 +1,134 @@
+\documentclass[12pt]{article}
+\usepackage{url}
+\usepackage{bm}
+\usepackage{bbm}
+\usepackage{amsmath,amsfonts,amssymb,amsthm,rotating,dsfont}
+\usepackage{algorithm}
+\usepackage{pdflscape}
+\usepackage{enumerate}
+\usepackage{xcolor}
+\usepackage{multirow}
+\usepackage[left = 1 in, right = 1 in, top = 1 in, bottom = 1 in]{geometry}
+\usepackage{setspace}
+\usepackage{lineno}
+\usepackage{threeparttable}
+\usepackage{xr}
+\usepackage{adjustbox}
+\usepackage{graphicx}
+\usepackage{tabularx,booktabs}
+\usepackage{hyperref}
+
+\newcommand{\tablesdir}{tables}
+
+\begin{document}
+
+\setcounter{table}{3}
+
+ \clearpage
+ \setcounter{table}{2}
+ \begin{table}[!htbp]
+ \caption{\sc Downside Risk Factor Screening}\label{tbl:screening:variables}
+ \begin{center}
+ \begin{footnotesize}
+ \input{\tablesdir/factors_screening.tex}
+ \end{footnotesize}
+ \end{center}
+
+  {\hspace{1em} \footnotesize This table reports the results of the downside risk factor screening exercise. For each predictor, the table lists the percentage of macroeconomic variables for which the coefficient on the predictor is statistically significant at the 5\% level. The percentages are obtained from quantile regression, with $p=0.05$, at horizons of 1, 3, 6, and 12 months. Significance is assessed on the basis of bootstrap standard errors. Predictors are sorted in descending order according to the average percentage of significant coefficients across horizons.
+  }
+
+ \end{table}
+
+\clearpage
+\begin{table}[!htbp]
+	\caption{\sc Downside Risk Model Screening}\label{tbl:screening:models}
+	\begin{center}
+		\begin{tiny}
+			\input{\tablesdir/models_screening.tex}
+		\end{tiny}
+	\end{center}
+
+	{\hspace{1em} \footnotesize This table reports the results of the downside risk model screening exercise. For each downside risk factor and forecast horizon, the table lists the average tick loss gain associated with quantile regression, with $p=0.05$, and the three variants of the location-scale regression at horizons of 1, 3, 6, and 12 months. The gains are computed relative to the historical quantile benchmark. Bold values indicate the best-performing specification at each horizon in terms of the average tick loss gain.
+	}
+
+\end{table}
+
+\clearpage
+\begin{table}[!htbp]
+\caption{\sc Model Confidence Set}\label{tbl:mcs}
+\begin{center}
+\begin{footnotesize}
+\input{\tablesdir/MCS.tex}
+\end{footnotesize}
+\end{center}
+
+	{\hspace{1em} \footnotesize This table reports the results of the Model Confidence Set procedure for the downside risk forecasts at horizons 1, 3, 6, and 12. For each forecast horizon, the table lists the share of models included in the MCS and the highest average tick loss gain within each specification subgroup. The first row refers to the full set of models, while the following rows decompose the results by model type and by number of factors. The bottom rows report, for selected individual models, whether the specification is included in the MCS together with the corresponding average tick loss gain.}
+
+\end{table}
+
+\clearpage
+\begin{table}[!htbp]
+	\caption{\sc Downside Risk Prediction Using One Factor}\label{tbl:oos:1fac}
+	\vspace{-1em}
+	\begin{center}
+		\begin{tiny}
+			\input{\tablesdir/oos_1_fac.tex}
+		\end{tiny}
+	\end{center}
+
+	{\hspace{1em} \footnotesize
+	This table reports backtesting statistics for the downside risk forecasts of one-factor specifications at horizons 1, 3, 6, and 12.
+	For each forecast horizon and specification, the table lists the average tick loss gain, the number of pairwise wins against other one-factor models,
+	the grand average of the hit variable,
+	the fraction of series for which the null of correct coverage in the DQU and DQC tests cannot be rejected at the 5\% level,
+	and whether the specification is included in the model confidence set. Bold values indicate the best-performing specifications at each horizon in terms of the average tick loss gain or the number of pairwise wins.
+	 }
+
+\end{table}
+
+\clearpage
+\begin{table}[!htbp]
+	\caption{\sc Downside Risk Prediction Using Multiple Factors}\label{tbl:oos:mfac}
+	\vspace{-1.5em}
+\begin{center}
+\begin{tiny}
+\input{\tablesdir/oos_mix_fac.tex}
+\end{tiny}
+\end{center}
+	\vspace{-1.5em}
+{\hspace{1em} \footnotesize This table reports backtesting statistics for the downside risk forecasts of selected one-, two-, and three-factor specifications at horizons 1, 3, 6, and 12.
+ For each forecast horizon and specification, the table lists the average tick loss gain, the grand average of the hit variable,
+ the fraction of series for which the null of correct coverage in the DQU and DQC tests cannot be rejected at the 5\% level,
+ and whether the specification is included in the model confidence set. Bold values indicate the best-performing specifications at each horizon in terms of the average tick loss gain or the number of pairwise wins.
+}
+
+\end{table}
+
+\clearpage
+\begin{table}[!htbp]
+	\caption{\sc Downside Risk Prediction for the FRED-MD Categories}\label{tbl:oos:cat}
+\begin{center}
+\begin{tiny}
+\input{\tablesdir/CAT_summary.tex}
+\end{tiny}
+\end{center}
+
+{\hspace{1em} \footnotesize This table reports the out-of-sample predictive performance of selected one-factor downside risk models across the FRED--MD categories at horizons 1, 3, 6, and 12. For each forecast horizon, specification, and category, the table lists the average tick loss gain relative to the historical quantile benchmark. Results are reported separately for quantile regression and location-scale regression specifications. Bold values indicate the best-performing specification for each category at each horizon in terms of the average tick loss gain.}
+
+\end{table}
+
+\clearpage
+\begin{table}[!htbp]
+	\caption{\sc Downside Risk Prediction for Policy-Relevant Variables}\label{tbl:oos:pr}
+\begin{center}
+\begin{tiny}
+\input{\tablesdir/PR_summary.tex}
+\end{tiny}
+\end{center}
+
+{\hspace{1em} \footnotesize This table reports the out-of-sample predictive performance of one-factor downside risk models for selected policy-relevant variables at horizons 1, 3, 6, and 12. For each forecast horizon, specification, and variable, the table lists the average tick loss gain relative to the historical quantile benchmark. Results are reported separately for quantile regression and location-scale regression specifications. Bold values indicate the best-performing specification for each variable at each horizon in terms of the average tick loss gain.
+ }
+
+\end{table}
+
+\end{document}

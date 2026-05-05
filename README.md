@@ -35,6 +35,7 @@ FGaR-replication/
 │   ├── inputs/          Raw input data (FRED-MD, external factors)
 │   └── outputs/         Intermediate .mat files produced by the scripts
 └── paper/
+    ├── figures/         Generated .pdf figure files (Figures 1–2)
     └── tables/          Generated .tex table files (Tables 3–9)
 ```
 
